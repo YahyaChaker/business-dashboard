@@ -555,3 +555,226 @@
         page-break-before: always;
     }
 }
+
+/* Mobile-specific styles for FinancialOverview.module.css */
+
+@media screen and (max-width: 768px) {
+    /* Core Layout Adjustments */
+    .container {
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+    }
+  
+    .card {
+      padding: 1rem;
+      border-radius: 12px;
+    }
+  
+    /* Header Adjustments */
+    .header {
+      margin-bottom: 1.5rem;
+    }
+  
+    .title {
+      font-size: 1.5rem;
+    }
+  
+    .subtitle {
+      font-size: 1rem;
+    }
+  
+    /* KPI Grid Adjustments */
+    .kpiGrid {
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+  
+    .kpiCard {
+      padding: 1rem;
+    }
+  
+    .kpiLabel {
+      font-size: 0.75rem;
+    }
+  
+    .kpiValue {
+      font-size: 1rem;
+    }
+  
+    /* Chart Section Adjustments */
+    .chartContainer {
+      padding: 1rem;
+      height: auto;
+      margin-bottom: 1.5rem;
+    }
+  
+    .chartWithDetails {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  
+    .chartWrapper {
+      height: 300px;
+    }
+  
+    /* Monthly Details Panel Adjustments */
+    .monthlyDetailsWrapper {
+      flex: none;
+      width: 100%;
+      min-width: 0;
+      border-left: none;
+      border-top: 1px solid #e2e8f0;
+      padding: 1rem 0 0;
+      margin-top: 1rem;
+    }
+  
+    .detailsGrid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.5rem;
+    }
+  
+    .detailCard {
+      height: auto;
+      padding: 0.75rem;
+    }
+  
+    .detailLabel {
+      font-size: 0.7rem;
+    }
+  
+    .detailValue {
+      font-size: 0.875rem;
+    }
+  
+    /* Table and Indicator Container */
+    .tableAndIndicatorContainer {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  
+    /* Table Adjustments */
+    .tableContainer {
+      padding: 0.75rem;
+      overflow-x: auto;
+    }
+  
+    .tableHeader {
+      padding: 0.75rem;
+    }
+  
+    .tableTitle {
+      font-size: 1rem;
+    }
+  
+    .table {
+      font-size: 0.75rem;
+    }
+  
+    .tableHeaderCell {
+      padding: 0.5rem;
+      white-space: nowrap;
+    }
+  
+    .tableCell {
+      padding: 0.5rem;
+      white-space: nowrap;
+    }
+  
+    .variationCount {
+      font-size: 0.7rem;
+      padding: 0.2rem 0.5rem;
+    }
+  
+    .badge {
+      font-size: 0.65rem;
+      padding: 0.2rem 0.5rem;
+    }
+  
+    /* Variation Indicator Adjustments */
+    .variationIndicator {
+      padding: 1rem;
+      min-width: 0;
+      height: auto;
+    }
+  
+    .indicatorTitle {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+  
+    .percentageText {
+      font-size: 1.5rem;
+    }
+  
+    .impactLabel {
+      font-size: 1rem;
+    }
+  
+    .impactDetails {
+      margin-top: 1rem;
+    }
+  
+    .impactItem {
+      margin-bottom: 0.5rem;
+    }
+  
+    .impactItem .impactLabel {
+      font-size: 0.75rem;
+    }
+  
+    .impactItem .impactValue {
+      font-size: 0.875rem;
+    }
+  }
+  
+  /* Small Mobile Devices (under 480px) */
+  @media screen and (max-width: 480px) {
+    .container {
+      padding: 0.5rem;
+    }
+  
+    .card {
+      padding: 0.75rem;
+    }
+  
+    .title {
+      font-size: 1.25rem;
+    }
+  
+    .subtitle {
+      font-size: 0.875rem;
+    }
+  
+    .chartWrapper {
+      height: 250px;
+    }
+  
+    .detailsGrid {
+      grid-template-columns: 1fr;
+    }
+  
+    .tableCell, 
+    .tableHeaderCell {
+      padding: 0.4rem;
+      font-size: 0.7rem;
+    }
+  
+    .badge {
+      font-size: 0.6rem;
+      padding: 0.15rem 0.4rem;
+    }
+  
+    /* Ensure tables are scrollable on very small screens */
+    .tableWrapper {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin: 0 -0.75rem;
+      padding: 0 0.75rem;
+    }
+  
+    .table {
+      min-width: 480px; /* Ensure minimum width for readability */
+    }
+  }
