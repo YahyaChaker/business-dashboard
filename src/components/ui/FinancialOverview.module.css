@@ -476,6 +476,62 @@
     }
 }
 
+@media (max-width: 480px) {
+    .container {
+        padding: 0.75rem;
+    }
+
+    .title {
+        font-size: 1.5rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .kpiGrid {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+
+    .chartContainer {
+        height: 300px;
+        padding: 1rem;
+    }
+
+    .chartWithDetails {
+        flex-direction: column;
+    }
+
+    .monthlyDetailsWrapper {
+        border-left: none;
+        border-top: 1px solid #e2e8f0;
+        padding: 1rem 0 0 0;
+        width: 100%;
+    }
+
+    .tableSection {
+        flex-direction: column;
+    }
+
+    .variationIndicator {
+        min-width: 100%;
+    }
+
+    .tableContainer {
+        overflow-x: auto;
+    }
+
+    .table {
+        font-size: 0.75rem;
+    }
+
+    .tableCell,
+    .tableHeaderCell {
+        padding: 0.5rem;
+    }
+}
+
 /* 
 * ==============================================
 * 10. Print Styles

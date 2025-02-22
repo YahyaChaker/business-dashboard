@@ -491,6 +491,59 @@
     }
 }
 
+@media (max-width: 480px) {
+    .container {
+        padding: 0.75rem;
+    }
+
+    .cardContent {
+        padding: 1rem;
+    }
+
+    .header {
+        flex-direction: column;
+        gap: 0.75rem;
+        align-items: flex-start;
+    }
+
+    .titleContainer {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .checkboxContainer {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .levelLabel {
+        font-size: 0.875rem;
+        padding: 0.375rem 0.75rem;
+    }
+
+    .nodesContainer {
+        gap: 0.75rem;
+        justify-content: center;
+    }
+
+    .node {
+        width: 120px;
+        min-height: 120px;
+    }
+
+    .nodeTitle {
+        font-size: 0.875rem;
+    }
+
+    .statsContainer {
+        padding: 0.375rem;
+    }
+
+    .statValue {
+        font-size: 1rem;
+    }
+}
+
 /* 
 * ==============================================
 * 8. Print Styles 

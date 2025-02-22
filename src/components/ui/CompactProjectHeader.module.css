@@ -114,7 +114,7 @@
   .projectTitle {
     font-size: 2rem;
     font-weight: 600;
-    color: #2A1464;
+    color:rgb(224, 38, 32);
     margin: 0;
     line-height: 1.2;
   }
@@ -365,6 +365,163 @@
     }
   }
   
+  @media (max-width: 480px) {
+    .pageHeader {
+        padding: 0.75rem;
+        background: linear-gradient(135deg, rgba(229,127,132,0.05) 0%, rgba(244,208,63,0.05) 100%);
+    }
+
+    .card {
+        border-radius: 12px;
+        margin: 0.5rem;
+        backdrop-filter: blur(10px);
+        background: rgba(255, 255, 255, 0.95);
+    }
+
+    .cardContent {
+        padding: 1rem !important;
+    }
+
+    .mainLayout {
+        gap: 1.5rem;
+        position: relative;
+    }
+
+    .leftSection {
+        gap: 1rem;
+        transform-origin: top;
+        transition: transform 0.3s ease;
+    }
+
+    .logoSection {
+        position: relative;
+        padding: 0;
+        margin-bottom: 0.5rem;
+    }
+
+    .clientLogo {
+        width: 60px;
+        height: 60px;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+    }
+
+    .clientLogo:active {
+        transform: scale(0.95);
+    }
+
+    .projectTitle {
+        font-size: 1.25rem;
+        background: linear-gradient(135deg, #2A1464 0%, #D35400 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .progressCircleWrapper {
+        width: 80px;
+        height: 80px;
+        margin: 0 auto;
+    }
+
+    .progressCircle::before {
+        width: 70px;
+        height: 70px;
+    }
+
+    .metricsGrid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .metricItem {
+        flex: 0 1 calc(50% - 0.25rem);
+        padding: 0.75rem;
+        background: rgba(248, 249, 250, 0.8);
+        backdrop-filter: blur(4px);
+        border: 1px solid rgba(229,127,132,0.1);
+        transform: none;
+    }
+
+    .metricIcon {
+        padding: 0.35rem;
+        font-size: 0.875rem;
+        background: rgba(229,127,132,0.1);
+    }
+
+    .metricContent {
+        flex: 1;
+    }
+
+    .metricValue {
+        font-size: 0.875rem;
+    }
+
+    .metricLabel {
+        font-size: 0.675rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .valueContainer {
+        width: 100%;
+        background: linear-gradient(135deg, rgba(250,232,235,0.5) 0%, rgba(255,255,255,0.5) 100%);
+        backdrop-filter: blur(4px);
+        border: 1px solid rgba(229,127,132,0.1);
+        padding: 0.75rem;
+    }
+
+    .valueAmount {
+        font-size: 1.125rem;
+    }
+
+    /* Mobile-specific animations */
+    @keyframes slideUpFade {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .metricItem {
+        animation: slideUpFade 0.3s ease forwards;
+        animation-delay: calc(var(--item-index) * 0.1s);
+    }
+
+    /* Collapsible metrics section */
+    .metricsGrid {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+
+    .metricsGrid.expanded {
+        max-height: 500px;
+    }
+
+    /* Add subtle hover effects */
+    .metricItem:active {
+        transform: scale(0.98);
+    }
+
+    /* Improved loading state for mobile */
+    .loading::after {
+        background: linear-gradient(
+            90deg,
+            transparent 0%,
+            rgba(255,255,255,0.6) 50%,
+            transparent 100%
+        );
+    }
+  }
+  
   /* Animation Effects */
   @keyframes slideIn {
     from {
@@ -424,3 +581,24 @@
       transform: translateX(100%);
     }
   }
+
+  @media (max-width: 768px) {
+    .loading::after {
+      background: linear-gradient(
+        to right,
+        transparent 0%,
+        rgba(255,255,255,0.4) 50%,
+        transparent 100%
+      );
+    }
+  }
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  } 
+  /* Added keyframes for shimmer effect */
+
