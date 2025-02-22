@@ -114,7 +114,7 @@
   .projectTitle {
     font-size: 2rem;
     font-weight: 600;
-    color:rgb(224, 38, 32);
+    color:#2A1464; /* Fixing color code format */
     margin: 0;
     line-height: 1.2;
   }
