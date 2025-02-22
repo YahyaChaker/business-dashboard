@@ -1,0 +1,99 @@
+/* 
+* ==============================================
+* 9. Enhanced KPI Donut Gauge
+* ==============================================
+*/
+
+.kpiGaugeContainer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0; /* Prevents the gauge from shrinking */
+  margin: 0;
+  width: 240px;
+  height: 180px;
+  margin: 0 auto;
+}
+
+.kpiGaugeSvg {
+  overflow: visible;
+}
+
+.kpiCentralCircle {
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.1));
+}
+
+.kpiArcProgress {
+  transform-origin: center;
+  animation-duration: 2.5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+.excellent .kpiArcProgress {
+  color: #10B981;
+  animation-name: glowExcellent;
+}
+
+.good .kpiArcProgress {
+  color: #F59E0B;
+  animation-name: glowGood;
+}
+
+.average .kpiArcProgress {
+  color: #3B82F6;
+  animation-name: glowAverage;
+}
+
+.poor .kpiArcProgress {
+  color: #EF4444;
+  animation-name: glowPoor;
+}
+
+.kpiScoreText {
+  fill: #6B7280;
+  font-weight: 700;
+}
+
+.excellent .kpiScoreText {
+  fill: #10B981;
+}
+
+.good .kpiScoreText {
+  fill: #F59E0B;
+}
+
+.average .kpiScoreText {
+  fill: #3B82F6;
+}
+
+.poor .kpiScoreText {
+  fill: #EF4444;
+}
+
+.kpiMonthText {
+  fill: #6B7280;
+  font-size: 0.875rem;
+}
+
+/* Glow animations with smoother transitions */
+@keyframes glowExcellent {
+  0%, 100% { filter: drop-shadow(0 0 6px rgba(16, 185, 129, 0.5)); }
+  50% { filter: drop-shadow(0 0 10px rgba(16, 185, 129, 0.8)); }
+}
+
+@keyframes glowGood {
+  0%, 100% { filter: drop-shadow(0 0 6px rgba(245, 158, 11, 0.5)); }
+  50% { filter: drop-shadow(0 0 10px rgba(245, 158, 11, 0.8)); }
+}
+
+@keyframes glowAverage {
+  0%, 100% { filter: drop-shadow(0 0 6px rgba(59, 130, 246, 0.5)); }
+  50% { filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.8)); }
+}
+
+@keyframes glowPoor {
+  0%, 100% { filter: drop-shadow(0 0 6px rgba(239, 68, 68, 0.5)); }
+  50% { filter: drop-shadow(0 0 10px rgba(239, 68, 68, 0.8)); }
+}

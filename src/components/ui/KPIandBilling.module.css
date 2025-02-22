@@ -1,0 +1,257 @@
+/* Container for the entire dashboard */
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 1440px;
+  padding: 1.5rem;
+  margin: 0 auto;
+  margin-bottom: 2rem;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Background for the header section */
+.headerBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120px;  
+  z-index: 0;
+  border-radius: 0 0 50% 50% / 20px;
+}
+
+/* Main card styling */
+.card {
+  position: relative;
+  background: rgb(255, 255, 255);
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  overflow: hidden;
+  z-index: 1;
+  padding: 2rem;
+  animation: slideIn 0.5s ease-out;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+/* Header section styling */
+.header {
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: space-between;
+  align-items: start;
+  margin-bottom: 2rem;
+}
+
+/* Title styling */
+.title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #2A1464;
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* Subtitle styling */
+.subtitle {
+  color: #408AB4;
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin: 0.5rem 0 0 0;
+}
+
+/* SVG fill colors for different KPI score levels */
+.excellent {
+  fill: #4ECDC4;
+}
+
+.good {
+  fill: #FFD93D;
+}
+
+.average {
+  fill: #FF9F1C;
+}
+
+.poor {
+  fill: #FF6B6B;
+}
+
+/* Section header styling */
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+/* Section title styling */
+.sectionTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #2A1464;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+/* Icon styling for section title */
+.sectionTitleIcon {
+  margin-right: 0.5rem;
+  color: #408AB4;
+}
+
+/* Data table section styling */
+.dataTableSection {
+  background-color: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  border: 1px solid #f0f0f0;
+  margin-bottom: 1rem;
+}
+
+/* Expand button styling */
+.expandButton {
+  padding: 0.25rem 0.75rem;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.5rem;
+  font-size: 0.75rem;
+  color: #64748b;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* Container for the data table */
+.dataTableContainer {
+  overflow-x: auto;
+  max-height: 300px;
+  overflow-y: auto;
+  transition: max-height 0.3s ease;
+}
+
+/* Expanded state for the data table container */
+.expanded {
+  max-height: 800px;
+}
+
+/* Data table styling */
+.dataTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* Header cell styling for the data table */
+.tableHeaderCell {
+  position: sticky;
+  top: 0;
+  background-color: #f8fafc;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #64748b;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+/* Cell styling for the data table */
+.tableCell {
+  padding: 0.75rem 1rem;
+  font-size: 0.75rem;
+  color: #1e293b;
+  border-bottom: 1px solid #f0f0f0;
+  white-space: nowrap;
+}
+
+/* Styling for even rows in the data table */
+.evenRow {
+  background-color: #f8fafc;
+}
+
+/* KPI score badge styling */
+.kpiScoreBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 24px;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: white;
+}
+
+/* KPI score badge colors */
+.kpiScoreBadge.excellent {
+  background-color: #4ECDC4;
+}
+
+.kpiScoreBadge.good {
+  background-color: #FFD93D;
+  color: #1e293b;
+}
+
+.kpiScoreBadge.average {
+  background-color: #FF9F1C;
+}
+
+.kpiScoreBadge.poor {
+  background-color: #FF6B6B;
+}
+
+/* Received badge styling */
+.receivedBadge, .statusBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+/* Status badge for submitted status */
+.statusSubmitted {
+  background-color: rgba(64, 138, 180, 0.1);
+  color: #408AB4;
+}
+
+/* Status badge for review status */
+.statusReview {
+  background-color: rgba(255, 217, 61, 0.1);
+  color: #d9b52f;
+}
+
+/* Consolidated styles for statusPreparation and pending since they're identical */
+.statusPreparation, .pending {
+  background-color: rgba(100, 116, 139, 0.1);
+  color: #64748b;
+}
+
+/* Received status styling */
+.received {
+  background-color: rgba(88, 171, 86, 0.1);
+  color: #58AB56;
+}
+
+/* Not received status styling */
+.notReceived {
+  background-color: rgba(255, 107, 107, 0.1);
+  color: #FF6B6B;
+}
+
+/* Total row styling */
+.totalRow {
+  background: linear-gradient(to right, rgba(42, 20, 100, 0.05), rgba(64, 138, 180, 0.05));
+}
+
+/* Total cell styling */
+.tableTotalCell {
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #1e293b;
+  border-top: 2px solid #e2e8f0;
+}

@@ -1,0 +1,426 @@
+.pageHeader {
+    position: relative;
+    width: 100%;
+    max-width: 1440px; /* Added max-width */
+    padding: 1.5rem;
+    margin: 0 auto; /* Center horizontally */
+    margin-bottom: 2rem;
+}
+  
+  /* .headerBackground {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 200px;
+    background: linear-gradient(135deg, #E57F84 0%, #F4D03F 100%);
+    opacity: 0.15;
+    z-index: 0;
+  } */
+  
+  .card {
+    position: relative;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    overflow: hidden;
+    z-index: 1;
+  }
+  
+  .cardHovered {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  }
+  
+  .cardContent {
+    padding: 2rem !important;
+  }
+  
+  .mainLayout {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3rem;
+  }
+  
+  /* Left Section */
+  .leftSection {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex: 1.5;
+  }
+  
+  .logoSection {
+    position: relative;
+    padding-right: 2rem;
+  }
+  
+  .clientLogo {
+    width: 120px;
+    height: auto;
+    object-fit: contain;
+  }
+  
+  .logoDivider {
+    position: absolute;
+    right: 0;
+    top: 10%;
+    height: 80%;
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, #e5e7eb, transparent);
+  }
+  
+  .projectInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .referenceWrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  
+  .referenceBadge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #FAE8EB;
+    color: #D35400;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  }
+  
+  .badgeIcon {
+    color: #E57F84;
+  }
+  
+  .sparkleIcon {
+    color: #F4D03F;
+    animation: sparkle 2s infinite;
+  }
+  
+  @keyframes sparkle {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(0.9); }
+  }
+  
+  .projectTitle {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #2A1464;
+    margin: 0;
+    line-height: 1.2;
+  }
+  
+  .clientName {
+    color: #2A1464; /* Updated color for consistency with projectTitle */
+    font-size: 1.5rem;
+    margin: 0;
+  }
+  
+  /* Center Section */
+  .centerSection {
+    flex: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+  
+  .progressSection {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .progressCircle {
+    /* existing styles */
+  }
+  
+  .progress0 { --progress: 0; }
+  .progress10 { --progress: 10; }
+  .progress20 { --progress: 20; }
+  .progress30 { --progress: 30; }
+  .progress40 { --progress: 40; }
+  .progress50 { --progress: 50; }
+  .progress60 { --progress: 60; }
+  .progress70 { --progress: 70; }
+  .progress80 { --progress: 80; }
+  .progress90 { --progress: 90; }
+  .progress100 { --progress: 100; }
+  
+  .progressCircleWrapper {
+    position: relative;
+    width: 120px;
+    height: 120px;
+  }
+  
+  .progressCircle {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: conic-gradient(
+  #E57F84 0deg calc(var(--progress) * 3.6deg),
+  #FAE8EB calc(var(--progress) * 3.6deg) 360deg
+    );
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(42, 20, 100, 0.1);
+  }
+  
+  .progressCircle::before {
+    content: '';
+    position: absolute;
+    width: 110px;
+    height: 110px;
+    background: white;
+    border-radius: 50%;
+  }
+  
+  
+  .progressInner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+  }
+  
+  .progressIcon {
+    color: #E57F84;
+    margin-bottom: 0.25rem;
+  }
+  
+  .progressText {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #D35400;
+    line-height: 1;
+  }
+  
+  .progressLabel {
+    font-size: 0.75rem;
+    color: #64748b;
+  }
+  
+  .metricsGrid {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 2rem;
+    gap: 1rem;  
+  }
+  
+  .metricItem {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 12px;
+    transition: all 0.2s ease;
+    min-width: 0; /* Allows flex items to shrink below content size */
+    gap: 1rem;
+  }
+  
+  .metricItem:hover {
+    background: #f1f5f9;
+    transform: translateX(2px);
+  }
+  
+  .metricIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    min-width: 32px;
+    min-height: 32px;
+    background: #FAE8EB;
+    border-radius: 8px;
+    color: #D35400;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  }
+  
+  .metricContent {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  
+  .metricValue {
+    font-weight: 1000;
+    color: #D35400;
+  }
+  
+  .metricLabel {
+    font-size: 0.75rem;
+    color: #64748b;
+    font-weight: 600; /* Added font weight for consistency */
+  }
+  
+  .metricDescription { /* Added description for clarity */
+    font-size: 0.875rem;
+    color: #8B8B8B;
+    text-align: center;
+  }
+
+  /* Right Section */
+  .rightSection {
+    flex: 1.5;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1rem;
+  }
+  
+  .companyLogo {
+    width: 360px;
+    height: auto;
+    object-fit: contain;
+  }
+  
+  .valueContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.25rem;
+    padding: 1rem;
+    background: linear-gradient(135deg, #FAE8EB 0%, #ffffff 100%);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+  
+  .valueLabel {
+    font-size: 0.875rem;
+    color: #64748b;
+    font-weight: 500;
+  }
+  
+  .valueAmount {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #2A1464;
+    background: linear-gradient(135deg, #D35400 0%, #E57F84 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 1200px) {
+    .mainLayout {
+      flex-direction: column;
+      gap: 2rem;
+    }
+  
+    .leftSection,
+    .centerSection,
+    .rightSection {
+      width: 100%;
+    }
+  
+    .rightSection {
+      align-items: center;
+    }
+  
+    .metricsGrid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .metricsGrid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  
+    .leftSection {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  
+    .logoDivider {
+      display: none;
+    }
+  
+    .referenceWrapper {
+      justify-content: center;
+    }
+  
+    .valueContainer {
+      width: 100%;
+      align-items: center;
+    }
+  }
+  
+  /* Animation Effects */
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .card {
+    animation: slideIn 0.5s ease-out;
+  }
+  
+  /* Hover Effects */
+  .metricItem:hover .metricIcon {
+    background: #E57F84;
+    color: white;
+    transform: scale(1.1);
+  }
+  
+  .valueContainer:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  }
+  
+  /* Loading State Styles */
+  .loading {
+    opacity: 0.7;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .loading::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255,255,255,0.4) 50%,
+      transparent 100%
+    );
+    animation: shimmer 1.5s infinite;
+  }
+  
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }

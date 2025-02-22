@@ -1,0 +1,501 @@
+/* FinancialOverview.module.css */
+
+/* 
+* ==============================================
+* 1. Core Layout
+* Basic container and structural elements
+* ==============================================
+*/
+.container {
+    position: relative;
+    width: 100%;
+    max-width: 1440px;
+    padding: 1.5rem;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+}
+
+/* Main card wrapper */
+.card {
+    position: relative;
+    background: rgb(255, 255, 255);
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    overflow: hidden;
+    z-index: 1;
+    padding: 2rem;
+    animation: slideIn 0.5s ease-out;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+}
+
+/* 
+* ==============================================
+* 2. Header Section
+* Dashboard title and subtitle styling
+* ==============================================
+*/
+.header {
+    margin-bottom: 2rem;
+}
+
+.title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #2A1464;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.subtitle {
+    color: #408AB4;
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+/* 
+* ==============================================
+* 3. KPI Cards Grid
+* Top metrics display section
+* ==============================================
+*/
+.kpiGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.kpiCard {
+    background-color: #f8f9fa;
+    padding: 0.25rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.kpiCard:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* KPI Card Content Styling */
+.kpiLabel {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #64748b;
+}
+
+.kpiValue {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-top: 0.5rem;
+    margin-bottom: 0.25rem;
+}
+
+.kpiTrend {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+}
+
+.trendPositive {
+    color: #10b981;
+}
+
+.trendNegative {
+    color: #ef4444;
+}
+
+/* 
+* ==============================================
+* 4. Chart Section
+* Main chart and monthly details side panel
+* ==============================================
+*/
+.chartContainer {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    height: 500px;
+}
+
+.chartContainer:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.chartTitle {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 1.5rem;
+}
+
+/* Chart Layout */
+.chartWithDetails {
+    display: flex;
+    gap: 2rem;
+    height: 85%;
+}
+
+.chartWrapper {
+    flex: 2;
+    min-width: 0;
+    position: relative;
+    height: 100%;
+}
+
+/* Monthly Details Panel */
+.monthlyDetailsWrapper {
+    flex: 0 0 220px;
+    width: 220px;
+    min-width: 220px;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    border-left: 1px solid #e2e8f0;
+    padding-left: 1.5rem;
+    overflow-y: auto;
+}
+
+/* Month Selector */
+.monthSelector {
+    margin-bottom: 1rem;
+}
+
+.select {
+    width: 100%;
+    padding: 0.25rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-style: italic;
+    font-weight: 600;
+    color: #1e203b;
+    background-color: rgb(255, 255, 255);
+}
+
+.select:focus {
+    outline: none;
+    border-color: #64748b;
+}
+
+/* Monthly Details Cards */
+.detailsGrid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+.detailCard {
+    background: #f6f3f2;
+    fill-opacity: 0.5;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    transition: transform 0.2s ease;
+    height: 50px;
+}
+
+.detailCard:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.detailLabel {
+    font-size: 0.875rem;
+    color: #58ab56;
+    margin-bottom: 0.25rem;
+    margin-top: 1%;
+}
+
+.detailValue {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+
+/* Container for table and variation indicator */
+.tableAndIndicatorContainer {
+    display: flex;
+    align-items: stretch; /* Ensure children stretch to the same height */
+    gap: 2rem; /* Adjust the gap as needed */
+}
+
+.tableContainer, .variationIndicator {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 
+* ==============================================
+* 5. Table Section
+* Contract variations table styling
+* ==============================================
+*/
+.tableSection {
+    display: flex;
+    gap: 2rem;
+}
+
+.tablePart {
+    flex: 2;
+    min-width: 0;
+}
+
+.tableContainer {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/* Table Header */
+.tableHeader {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.tableTitle {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+/* Table Styling */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tableHeaderCell {
+    padding: 0.75rem 1.5rem;
+    text-align: left;
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: #64748b;
+    background-color: #f8fafc;
+}
+
+.tableCell {
+    padding: 1rem 1.5rem;
+    font-size: 0.875rem;
+    color: #1e293b;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+/* Table Total Row */
+.totalRow {
+    background: linear-gradient(to right, rgba(255, 183, 178, 0.2), rgba(78, 205, 196, 0.2));
+}
+
+.totalCell {
+    font-weight: 600;
+    color: #1e293b;
+    padding: 1rem 1.5rem;
+    border-top: 2px solid #FFD93D;
+}
+
+/* 
+* ==============================================
+* 6. Variation Indicator
+* Radial chart and impact details
+* ==============================================
+*/
+.variationIndicator {
+    flex: 1;
+    background: white;
+    background-image: radial-gradient(circle, rgba(0, 0, 0, 0.068) 1%, transparent 1%);
+    background-size: 10px 10px; /* Adjust dot spacing */
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    min-width: 300px;
+    height: flex;
+}
+
+.indicatorTitle {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #2A1464;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+/* Radial Chart Text */
+.percentageText {
+    font-size: 2rem;
+    font-weight: bold;
+    fill: #2A1464;
+}
+
+.impactLabel {
+    font-size:2rem;
+    fill: #64748b;
+   
+}
+
+/* Impact Details Section */
+.impactDetails {
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid #e5e7eb;
+}
+
+.impactItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+}
+
+.impactItem .impactLabel {
+    color: #64748b;
+    font-size: 0.875rem;
+}
+
+.impactItem .impactValue {
+    color: #2A1464;
+    font-weight: 600;
+}
+
+/* 
+* ==============================================
+* 7. Utility Classes
+* Badges, loading states, and other utilities
+* ==============================================
+*/
+.badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.badgeNormal {
+    background-color: #dbeafe;
+    color: #1d4ed8;
+}
+
+.badgeHigh {
+    background-color: #fee2e2;
+    color: #dc2626;
+}
+
+.variationCount {
+    background-color: #f3e8ff;
+    color: #7e22ce;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+/* Loading and Error States */
+.loading, .error {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    color: #64748b;
+}
+
+.error {
+    color: #dc2626;
+}
+
+/* 
+* ==============================================
+* 8. Animations
+* ==============================================
+*/
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 
+* ==============================================
+* 9. Responsive Design
+* Media queries for different screen sizes
+* ==============================================
+*/
+@media (max-width: 1024px) {
+    .kpiGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .chartWithDetails {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .chartWrapper {
+        height: 400px;
+    }
+
+    .monthlyDetailsWrapper {
+        height: auto;
+        min-width: 100%;
+    }
+}
+
+@media (max-width: 640px) {
+    .kpiGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .container {
+        padding: 1rem;
+    }
+
+    .tableCell,
+    .tableHeaderCell {
+        padding: 0.75rem 1rem;
+    }
+}
+
+/* 
+* ==============================================
+* 10. Print Styles
+* Optimizations for printed output
+* ==============================================
+*/
+@media print {
+    .container {
+        background-color: white;
+    }
+
+    .kpiCard,
+    .chartContainer,
+    .tableContainer {
+        break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #e2e8f0;
+    }
+
+    .chart {
+        page-break-before: always;
+    }
+}

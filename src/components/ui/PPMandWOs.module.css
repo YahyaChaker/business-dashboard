@@ -1,0 +1,504 @@
+/* 
+* ==============================================
+* 1. Variables & Root Settings
+* ==============================================
+*/
+:root {
+    --elegancia-red: #FF0000;
+    --elegancia-black: #000000;
+    --qd-purple: #2A1464; /* Restoring the original color */
+    --qd-gold: #C5A572;
+    --navy: #1E2761;
+    --slate: #408AB4;
+    --warm: #F8F4E3;
+    --accent: #E6B89C;
+    --success: #10b981;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+    --chart-blue: #3B82F6;    /* Changed from #408AB4 to a vibrant blue */
+    --chart-green: #10B981;   /* Changed from #4ECDC4 to a forest green */
+    --chart-amber: #F59E0B;   /* Changed from #FF9F1C to a deeper amber */
+}
+
+/* 
+* ==============================================
+* 2. Core Layout & Container
+* ==============================================
+*/
+.container {
+    position: relative;
+    width: 100%;
+    max-width: 1440px;
+    padding: 1.5rem;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+    font-family: 'times new roman', sans-serif;
+}
+
+.card {
+    position: relative;
+    background: rgb(255, 255, 255);
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    overflow: hidden;
+    z-index: 1;
+    padding: 2rem;
+    animation: slideIn 0.5s ease-out;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* 
+* ==============================================
+* 3. Header Styles
+* ==============================================
+*/
+.header {
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--qd-purple);
+    margin: 0;
+    line-height: 1.2;
+}
+
+.subtitle {
+    color: var(--slate);
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+}
+
+/* 
+* ==============================================
+* 4. Tab Navigation
+* ==============================================
+*/
+.tabContainer {
+    display: flex;
+    border-radius: 0.375rem;
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+}
+
+.tabButton {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    border: none;
+    cursor: pointer;
+    background-color: white;
+    color: #4b5563;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.tabButton:focus {
+    outline: none;
+}
+
+.tabButton.active {
+    background-color: var(--qd-purple);
+    color: white;
+}
+
+.tabIcon {
+    display: block;
+    width: 16px;
+    height: 16px;
+    margin-right: 0.5rem;
+    flex-shrink: 0;
+}
+
+/* 
+* ==============================================
+* 5. Main Content Area
+* ==============================================
+*/
+.mainContent {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* 
+* ==============================================
+* 6. KPI Card Grid
+* ==============================================
+*/
+.kpiGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.5rem;  /* Reduced from 1rem */
+    height: 400px;
+    //overflow-y: auto;  /* Uncommented to enable scrolling */
+    padding-right: 0.5rem;  /* Added padding for scrollbar */
+}
+
+.kpiCard {
+    background: white;
+    padding: 0.75rem;  /* Reduced from 1rem */
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    min-height: 60px;  /* Reduced from 90px */
+    flex-shrink: 0;
+}
+
+.kpiCard:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.kpiHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.kpiLabel {
+    font-size: 0.75rem;  /* Reduced from 0.875rem */
+    color: #64748b;
+    margin-bottom: 0.25rem;  /* Reduced from 0.5rem */
+}
+
+.kpiIcon {
+    display: block;
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+.iconSlate {
+    color: var(--slate);
+}
+
+.iconSuccess {
+    color: var(--success);
+}
+
+.iconWarning {
+    color: var(--warning);
+}
+
+.kpiValueContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.25rem;
+    margin-top: 0.25rem;  /* Reduced from 0.5rem */
+}
+
+.kpiValue {
+    font-size: 1.25rem;  /* Reduced from 1.5rem */
+    font-weight: 600;
+    color: var(--qd-purple);
+    line-height: 1.2;  /* Added for better vertical spacing */
+}
+
+.kpiValue.success {
+    color: var(--success);
+}
+
+.kpiValue.warning {
+    color: var(--warning);
+}
+
+.kpiValue.danger {
+    color: var(--danger);
+}
+
+.kpiContext {
+    font-size: 0.75rem;  /* Reduced from 0.875rem */
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    margin-top: 0.25rem;  /* Reduced from 0.5rem */
+    color: var(--slate);
+}
+
+.kpiContext.success {
+    color: var(--success);
+}
+
+.kpiContext.danger {
+    color: var(--danger);
+}
+
+.trendIcon {
+    display: block;
+    width: 16px;
+    height: 16px;
+    margin-right: 0.25rem;
+    flex-shrink: 0;
+}
+
+.trendUp {
+    color: var(--success);
+}
+
+.trendDown {
+    color: var(--danger);
+}
+
+/* 
+* ==============================================
+* 7. Chart Section
+* ==============================================
+*/
+
+.chartKPIContainer {
+/* Add styles for chartKPIContainer here */
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    gap: 1rem; /* Added gap for spacing between grid items */
+}
+
+/* 
+* ==============================================
+* 7. Chart Section
+* ==============================================
+*/
+.chartSection {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    height: 400px; /* Match KPIGrid height */
+}
+
+.chartTitle {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--qd-purple);
+    margin-bottom: 1rem;
+}
+
+.chartContainer {
+    height: calc(100% - 3rem);
+    width: 100%;
+}
+
+/* 
+* ==============================================
+* 8. Status Elements
+* ==============================================
+*/
+.statusSummary {
+    margin-top: 2rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    background-color: #f8f9fa;
+    transition: all 0.3s ease;
+}
+
+.statusSummary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.statusSummary.success {
+    border-left: 4px solid var(--success);
+}
+
+.statusSummary.warning {
+    border-left: 4px solid var(--warning);
+}
+
+.statusSummary.danger {
+    border-left: 4px solid var(--danger);
+}
+
+.statusIconContainer {
+    margin-right: 0.75rem;
+    padding: 0.5rem;
+    border-radius: 9999px;
+    background-color: white;
+}
+
+.statusIcon {
+    display: block;
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+.statusTitle {
+    font-weight: 500;
+    margin: 0;
+    color: var(--navy);
+}
+
+.statusText {
+    font-size: 0.75rem;
+    margin: 0.25rem 0 0;
+    color: var(--slate);
+}
+
+/* 
+* ==============================================
+* 9. Loading States
+* ==============================================
+*/
+.loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+    color: #64748b;
+}
+
+.loadingContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 16rem;
+    background-color: white;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.loadingSpinner {
+    animation: spin 1s linear infinite;
+    height: 3rem;
+    width: 3rem;
+    border-radius: 9999px;
+    border-top: 2px solid var(--qd-purple);
+    border-right: 2px solid transparent;
+    border-bottom: 2px solid var(--qd-purple);
+    border-left: 2px solid transparent;
+}
+
+/* 
+* ==============================================
+* 10. Tooltip Styles
+* ==============================================
+*/
+.customTooltip {
+    padding: 0.75rem;
+    background-color: white;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    border-radius: 0.375rem;
+    border: 1px solid #f3f4f6;
+}
+
+.tooltipLabel {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--navy);
+}
+
+.tooltipItem {
+    font-size: 0.75rem;
+}
+
+.tooltipItem[data-color] {
+    color: attr(data-color);
+}
+
+/* 
+* ==============================================
+* 11. Animations
+* ==============================================
+*/
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 
+* ==============================================
+* 12. Responsive Design
+* ==============================================
+*/
+@media (max-width: 1280px) {
+    .mainContent {
+        grid-template-columns: 1fr;
+    }
+    
+    .kpiGrid {
+        height: 300px;
+    }
+    
+    .chartSection {
+        height: 300px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .kpiGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .container {
+        padding: 1rem;
+    }
+    
+    .card {
+        padding: 1rem;
+    }
+    
+    .title {
+        font-size: 1.5rem;
+    }
+    
+    .header {
+        flex-direction: column;
+    }
+    
+    .tabContainer {
+        margin-top: 1rem;
+        width: 100%;
+    }
+    
+    .tabButton {
+        flex: 1;
+        justify-content: center;
+    }
+    
+    .kpiGrid {
+        grid-template-columns: 1fr;
+    }
+    
+    .chartContainer {
+        height: 12rem;
+    }
+}
+
+/* Remove high-contrast specific styles */
+@media (forced-colors: active) {
+    /* Add any forced-colors mode specific styles here */
+    .kpiCard,
+    .chartSection,
+    .statusSummary {
+        border: 1px solid currentColor;
+    }
+}
+

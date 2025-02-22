@@ -1,0 +1,518 @@
+/* ManpowerAnalysis.module.css */
+
+/* 
+* ==============================================
+* 1. Core Layout
+* Basic container and structural elements
+* ==============================================
+*/
+.container {
+    position: relative;
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+}
+
+.cardContent {
+    position: relative;
+    background: rgb(255, 255, 255);
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    overflow: hidden;
+    z-index: 1;
+    padding: 2rem;
+    animation: slideIn 0.5s ease-out;
+}
+
+.cardContent:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+}
+
+/* 
+* ==============================================
+* 2. Header Section
+* Title and icon styling
+* ==============================================
+*/
+.header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    justify-content: space-between;
+}
+
+.headerIcon {
+    height: 1.5rem;
+    width: 1.5rem;
+    color: #2A1464;
+}
+
+.title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #2A1464;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.titleContainer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+  
+.checkboxContainer {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* 
+* ==============================================
+* 3. Organization Chart
+* Hierarchical structure visualization
+* ==============================================
+*/
+.orgChart {
+    margin-bottom: 2rem;
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+}
+
+.levelContainer {
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.levelLabel {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 1.25rem;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    display: inline-block;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.levelLabel1 { 
+    color: var(--summer-sky);
+    border-left: 4px solid var(--summer-sky);
+}
+.levelLabel2 { 
+    color: var(--summer-coral);
+    border-left: 4px solid var(--summer-coral);
+}
+.levelLabel3 { 
+    color: var(--summer-mint);
+    border-left: 4px solid var(--summer-mint);
+}
+.levelLabel4 { 
+    color: var(--summer-sand);
+    border-left: 4px solid var(--summer-sand);
+}
+.levelLabel5 { 
+    color: var(--summer-lavender);
+    border-left: 4px solid var(--summer-lavender);
+}
+
+.nodesContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    padding: 1rem;
+    justify-content: flex-start;
+    perspective: 1000px;
+}
+
+/* Modern Summer Color Palette */
+:root {
+    --summer-sky: #40BAD5;
+    --summer-coral: #FF8674;
+    --summer-mint: #7DCEA0;
+    --summer-sand: #FFD384;
+    --summer-lavender: #A387E8;
+    --summer-leaf: #6BCB77;
+    --summer-ocean: #4D96FF;
+    --summer-sunset: #FF9F9F;
+}
+
+/* Node Cards - Modern Summer Design */
+.node {
+    position: relative;
+    width: 140px;
+    min-height: 140px;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 16px;
+    box-shadow: 
+        0 4px 15px rgba(0, 0, 0, 0.1),
+        inset 0 -2px 0 rgba(255, 255, 255, 0.7);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.node::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--summer-coral), var(--summer-sky));
+}
+
+.node:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 
+        0 8px 25px rgba(0, 0, 0, 0.15),
+        inset 0 -2px 0 rgba(255, 255, 255, 0.7);
+}
+
+/* Node Background Patterns by Level */
+.nodeBorderLevel1 {
+    background: linear-gradient(135deg, #ffffff 0%, rgba(64, 186, 213, 0.1) 100%);
+}
+.nodeBorderLevel2 {
+    background: linear-gradient(135deg, #ffffff 0%, rgba(255, 134, 116, 0.1) 100%);
+}
+.nodeBorderLevel3 {
+    background: linear-gradient(135deg, #ffffff 0%, rgba(125, 206, 160, 0.1) 100%);
+}
+.nodeBorderLevel4 {
+    background: linear-gradient(135deg, #ffffff 0%, rgba(255, 211, 132, 0.1) 100%);
+}
+.nodeBorderLevel5 {
+    background: linear-gradient(135deg, #ffffff 0%, rgba(163, 135, 232, 0.1) 100%);
+}
+
+.nodeTitle {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #2A1464;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Stats Container */
+.statsContainer {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.7);
+    margin-top: 0.25rem;
+    height: 50%;
+}
+
+.statsLevel1 { box-shadow: inset 0 0 0 1px rgba(64, 186, 213, 0.2); }
+.statsLevel2 { box-shadow: inset 0 0 0 1px rgba(255, 134, 116, 0.2); }
+.statsLevel3 { box-shadow: inset 0 0 0 1px rgba(125, 206, 160, 0.2); }
+.statsLevel4 { box-shadow: inset 0 0 0 1px rgba(255, 211, 132, 0.2); }
+.statsLevel5 { box-shadow: inset 0 0 0 1px rgba(163, 135, 232, 0.2); }
+
+.statColumn {
+    text-align: center;
+    position: relative;
+    flex: 1;
+}
+
+.statColumn:first-child::after {
+    content: '';
+    position: absolute;
+    right: -1px;
+    top: 20%;
+    height: 60%;
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.1), transparent);
+}
+
+.statLabel {
+    font-size: 0.75rem;
+    color: #64748b;
+    margin-bottom: 0.25rem;
+    font-weight: 500;
+}
+
+.statValue {
+    font-size: 1.125rem;
+    font-weight: 700;
+    background: linear-gradient(45deg, #2A1464, #408AB4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Variance Badge */
+.variance {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    border: 2px solid white;
+    z-index: 2;
+}
+
+.variancePositive {
+    background: linear-gradient(135deg, var(--summer-leaf), var(--summer-mint));
+}
+
+.varianceNegative {
+    background: linear-gradient(135deg, var(--summer-coral), var(--summer-sunset));
+}
+
+/* 
+* ==============================================
+* 4. Trend Chart Section
+* Monthly trends visualization
+* ==============================================
+*/
+.trendsSection {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+.trendsFlex {
+    display: flex;
+    gap: 2rem;
+}
+
+.chartSide {
+    flex: 2;
+}
+
+.staffingSide {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    height: 100%;
+}
+
+.trendsTitle {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #2A1464;
+    margin-bottom: 1.5rem;
+}
+
+.chartContainer {
+    height: 400px;
+}
+
+.chart {
+    font-family: inherit;
+}
+
+.chart text {
+    font-size: 0.75rem;
+    fill: #64748b;
+}
+
+.tooltip {
+    background-color: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* 
+* ==============================================
+* 5. Staffing Analysis
+* ==============================================
+*/
+.monthSelectorContainer {
+    padding: 1rem;
+    background: #f8fafc;
+    border-radius: 0.5rem;
+}
+
+.monthSelector {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    color: #1e293b;
+    margin-top: 0.5rem;
+    transition: all 0.2s ease;
+}
+
+.monthSelector:focus {
+    border-color: var(--summer-sky);
+    box-shadow: 0 0 0 2px rgba(64, 186, 213, 0.2);
+}
+
+.staffingContainers {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    flex:1;
+}
+
+.staffingContainer {
+    background: #f8fafc;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    flex: 1;
+    display: flex;       /* Add these */
+    flex-direction: column; /* properties */
+}   
+
+.staffingTitle {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #2A1464;
+    margin-bottom: 1rem;
+}
+
+.staffingList {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+   
+    flex: 1;
+}
+
+.staffingItem {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem;
+    background: white;
+    border-radius: 0.25rem;
+    transition: all 0.2s ease;
+}
+
+.staffingItem:hover {
+    /*transform: translateX(2px);*/
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    background-color: antiquewhite;
+}
+
+.staffingRole {
+    font-size: 0.875rem;
+    color: #1e293b;
+}
+
+.staffingVariance {
+    font-weight: 600;
+    font-size: 0.875rem;
+}
+
+/* 
+* ==============================================
+* 6. Animations
+* ==============================================
+*/
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 
+* ==============================================
+* 7. Responsive Design
+* ==============================================
+*/
+@media (max-width: 1200px) {
+    .trendsFlex {
+        flex-direction: column;
+    }
+
+    .chartSide {
+        flex: 1;
+    }
+
+    .staffingSide {
+        flex-direction: row;
+    }
+
+    .staffingContainers {
+        flex-direction: row;
+    }
+
+    .chartContainer {
+        height: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .cardContent {
+        padding: 1rem;
+    }
+
+    .trendsFlex {
+        flex-direction: column;
+    }
+
+    .staffingSide {
+        flex-direction: column;
+    }
+
+    .staffingContainers {
+        flex-direction: column;
+    }
+
+    .monthSelector {
+        width: 100%;
+    }
+
+    .node {
+        width: 130px;
+        min-height: 130px;
+    }
+}
+
+/* 
+* ==============================================
+* 8. Print Styles 
+* ==============================================
+*/
+@media print {
+    .container {
+        max-width: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .cardContent {
+        box-shadow: none;
+        border: 1px solid #e2e8f0;
+    }
+
+    .node {
+        break-inside: avoid;
+    }
+
+    .trendsSection {
+        break-before: page;
+    }
+}
