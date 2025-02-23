@@ -284,90 +284,80 @@
     }
 }
 
-/* Enhanced Mobile Chart Styles */
+/* Mobile-specific Cost Distribution Chart Optimizations */
 @media screen and (max-width: 768px) {
-    .chartSection {
-      padding: 0.75rem;
-      height: auto;
-      min-height: 250px;
-      margin-bottom: 1rem;
+    /* Existing styles remain... */
+  
+    /* Specific adjustments for cost distribution chart */
+    .chartSection:nth-child(2) .chartContainer {
+      height: 200px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
   
-    .chartTitle {
-      font-size: 0.875rem;
-      margin-bottom: 0.5rem;
-    }
-  
-    .chartContainer {
-      height: 220px;
-      margin: -0.5rem -0.75rem;
-      padding: 0.5rem;
-    }
-  }
-  
-  /* Small Mobile Optimizations */
-  @media screen and (max-width: 360px) {
-    .chartSection {
-      padding: 0.5rem;
-      min-height: 200px;
-    }
-  
-    .chartContainer {
-      height: 180px;
-      margin: -0.25rem -0.5rem;
-    }
-  
-    /* Recharts Component Optimizations */
-    :global(.recharts-wrapper) {
-      font-size: 10px !important;
-    }
-  
-    :global(.recharts-tooltip-wrapper) {
-      font-size: 0.7rem;
-      max-width: 150px;
-    }
-  
-    :global(.recharts-tooltip-item) {
-      padding: 0.15rem 0.3rem;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-  
-    :global(.recharts-legend-wrapper) {
-      font-size: 0.6rem !important;
-      padding: 0 !important;
-      margin: 0 !important;
-    }
-  
-    :global(.recharts-legend-item) {
-      margin-right: 0.5rem !important;
-    }
-  
-    :global(.recharts-legend-item-text) {
-      margin-left: 0.25rem !important;
-    }
-  
-    :global(.recharts-xaxis),
-    :global(.recharts-yaxis) {
-      font-size: 0.6rem;
-    }
-  
-    :global(.recharts-xaxis-tick-value),
-    :global(.recharts-yaxis-tick-value) {
-      font-size: 0.6rem !important;
-    }
-  
-    :global(.recharts-area) {
-      stroke-width: 1 !important;
-    }
-  
+    /* Optimize pie chart layout */
     :global(.recharts-pie) {
-      transform: scale(0.8);
+      transform: scale(0.85);
       transform-origin: center;
     }
   
-    :global(.recharts-pie-label-text) {
+    /* Adjust legend positioning */
+    :global(.recharts-legend-wrapper) {
+      position: relative !important;
+      width: 100% !important;
+      height: auto !important;
+      bottom: 0 !important;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.25rem;
+      padding-top: 0.5rem !important;
+    }
+  
+    :global(.recharts-default-legend) {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0 0.25rem;
+    }
+  }
+  
+  /* Even more compact for very small screens */
+  @media screen and (max-width: 360px) {
+    .chartSection:nth-child(2) .chartContainer {
+      height: 180px;
+    }
+  
+    :global(.recharts-pie) {
+      transform: scale(0.75);
+    }
+  
+    /* Make legend items more compact */
+    :global(.recharts-legend-item) {
+      display: inline-flex !important;
+      align-items: center;
+      margin: 0 0.25rem !important;
+    }
+  
+    :global(.recharts-legend-item-text) {
       font-size: 0.6rem !important;
+      margin-left: 0.2rem !important;
+    }
+  
+    /* Optimize pie labels */
+    :global(.recharts-pie-label-text) {
+      font-size: 0.55rem !important;
+    }
+  
+    /* Adjust tooltip for better readability */
+    :global(.recharts-tooltip-wrapper) {
+      max-width: 120px;
+    }
+  
+    :global(.recharts-default-tooltip) {
+      font-size: 0.6rem !important;
+      padding: 0.25rem !important;
     }
   }
