@@ -246,7 +246,7 @@ const SystemsOverview = () => {
                   <h3 className={styles.statTitle}>Active Systems</h3>
                 </div>
                 <p className={`${styles.statValue} ${styles.green}`}>
-                  {systemsData.activeSubcontractors + systemsData.inHouse}
+                  {systemsData.activeSubcontractors}
                 </p>
               </div>
             </div>
