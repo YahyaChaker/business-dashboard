@@ -207,6 +207,10 @@ const SystemsOverview = () => {
     { name: 'Not Started', value: systemsData.notStarted, color: '#FF6B6B' }
   ];
 
+  const handleCheckbox = (e: React.ChangeEvent<HTMLInputElement>) => {
+    console.log(e.target.checked);
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.content}>
@@ -343,7 +347,10 @@ const SystemsOverview = () => {
               id="showTable"
               className={styles.checkbox}
               checked={showTable}
-              onChange={(e) => setShowTable(e.target.checked)}
+              onChange={(e) => {
+                setShowTable(e.target.checked);
+                handleCheckbox(e);
+              }}
             />
             <label htmlFor="showTable" className={styles.checkboxLabel}>
               Show Detailed Systems Data

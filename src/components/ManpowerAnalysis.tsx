@@ -125,6 +125,10 @@ const ManpowerAnalysis: React.FC = () => {
         );
     };
 
+    const handleFilterChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+        console.log(e.target.value);
+    };
+
   useEffect(() => {
         const loadData = async () => {
             try {

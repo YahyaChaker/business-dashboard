@@ -145,7 +145,14 @@ loadFinancialData();
 
   const avgProfitMargin = totals.revenue > 0 ? (totals.profit / totals.revenue) * 100 : 0;
 
-  
+  const handleResize = () => {
+    const el = tableContainerRef.current as HTMLDivElement;
+    el.style.height = `${el.offsetHeight}px`;
+  };
+
+  const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    console.log(e.target.value);
+  };
 
   if (loading) {
     return <div className={styles.loading}>Loading...</div>;
