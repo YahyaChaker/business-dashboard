@@ -233,7 +233,7 @@ const SystemsOverview = () => {
               <div className={`${styles.statCard} ${styles.orange}`}>
                 <div className={styles.statHeader}>
                   <Users2 className={`${styles.statIcon} ${styles.orange}`} size={20} />
-                  <h3 className={styles.statTitle}>Contract Value</h3>
+                  <h3 className={styles.statTitle}>Contracts Value</h3>
                 </div>
                 <p className={`${styles.statValue} ${styles.orange}`}>
                   {(systemsData.totalContractValue / 1000000).toFixed(1)}M
