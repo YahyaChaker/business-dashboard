@@ -62,7 +62,6 @@ const KpiFinanceDashboard: React.FC = () => {
   // Refs
   const metricsContainerRef = useRef<HTMLDivElement>(null);
   const kpiGaugeRef = useRef<HTMLDivElement>(null);
-  const wrapperRef = useRef<HTMLDivElement>(null);
 
   // Helper functions
   const formatCurrency = (value: number): string => 
@@ -225,11 +224,6 @@ const KpiFinanceDashboard: React.FC = () => {
       }
     };
   }, []);
-
-  const handleResize = () => {
-    const el = wrapperRef.current as HTMLDivElement;
-    el.style.width = '100%';
-  };
 
   // Filter function for active months
   const getActiveData = (data: KPIData[]) => {
