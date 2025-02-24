@@ -20,7 +20,7 @@ const App = () => {
       <KpiFinanceDashboard />
       <ManpowerAnalysis />
       <ExecutiveDashboard />
-      <SystemsOverview/>
+      <SystemsOverview />
       
       {/* Main Content Section */}
       <main className="container mx-auto p-6">
