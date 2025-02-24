@@ -1,0 +1,480 @@
+/* 
+* ==============================================
+* 1. Layout Components
+* ==============================================
+*/
+
+/* Main container wrapper */
+.container {
+    position: relative;
+    width: 100%;
+    max-width: 1440px;
+    padding: 1.5rem;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+}
+
+/* Content container with animation and hover effects */
+.content {
+    position: relative;
+    background: rgb(255, 255, 255);
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    overflow: hidden;
+    z-index: 1;
+    padding: 2rem;
+    animation: slideIn 0.5s ease-out;
+}
+
+.content:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* 
+* ==============================================
+* 2. Typography & Headers
+* ==============================================
+*/
+
+/* Section header container */
+.header {
+    margin-bottom: 2rem;
+}
+
+/* Main title styling */
+.title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #2A1464;
+    margin: 0;
+    line-height: 1.2;
+}
+
+/* Subtitle styling */
+.subtitle {
+    color: #408AB4;
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+}
+
+/* 
+* ==============================================
+* 3. Statistics Components
+* ==============================================
+*/
+
+/* Stats grid layout */
+.statsGrid {
+    display: grid;
+    grid-template-row: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+/* Individual stat card */
+.statCard {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    min-height: 75px;
+}
+
+/* Stat card header group */
+.statHeader {
+    display: flex;    
+    flex-direction: row;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0;
+}
+
+/* Stat icon container */
+.statIcon {
+    padding: 0.5rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Stat card title */
+.statTitle {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #2A1464;
+}
+
+/* Stat value display */
+.statValue {
+    margin-left: auto;
+    font-size: 1.875rem;
+    font-weight: 700;
+    line-height: 1.2;
+    white-space: nowrap;
+}
+
+/* 
+* ==============================================
+* 4. Color Variants
+* ==============================================
+*/
+
+/* Background gradients */
+.cyan {
+    background: linear-gradient(135deg, #ecfeff 0%, #f0f9ff 100%);
+}
+
+.orange {
+    background: linear-gradient(135deg, #fff7ed 0%, #fefce8 100%);
+}
+
+.green {
+    background: linear-gradient(135deg, #f0fdf4 0%, #f0fdfa 100%);
+}
+
+/* Icon colors */
+.statIcon.cyan { color: #0891b2; }
+.statIcon.orange { color: #ea580c; }
+.statIcon.green { color: #059669; }
+
+/* Value colors */
+.statValue.cyan { color: #0891b2; }
+.statValue.orange { color: #ea580c; }
+.statValue.green { color: #059669; }
+
+/* Status colors */
+.statusActive { color: #2AB7CA; }
+.statusHold { color: #FFD93D; }
+.statusNotStarted { color: #FF6B6B; }
+
+/* Legend value colors */
+.legendValue.cyan { color: #4ECDC4; }
+.legendValue.orange { color: #FF9F1C; }
+
+/* 
+* ==============================================
+* 5. Chart Components
+* ==============================================
+*/
+
+/* Charts grid layout */
+.chartsGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+/* Individual chart card */
+.chartCard {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    min-height: 400px;
+}
+
+/* Chart title */
+.chartTitle {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #2A1464;
+    margin-bottom: 1rem;
+    flex-shrink: 0;
+}
+
+/* Chart container */
+.chartContainer {
+    flex: 1;
+    min-height: 0;
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+/* 
+* ==============================================
+* 6. Legend Components
+* ==============================================
+*/
+
+/* Legend and status grid containers */
+.legendGrid, .statusGrid {
+    display: flex;
+    justify-content: space-around;
+    padding: 0.5rem;
+    flex-shrink: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Legend item styling */
+.legendItem {
+    text-align: center;
+    flex: 1;
+}
+
+/* Legend label */
+.legendLabel {
+    font-size: 0.875rem;
+    color: #64748b;
+    margin-bottom: 0.25rem;
+}
+
+/* Legend value */
+.legendValue {
+    font-size: 1.125rem;
+    font-weight: 700;
+}
+
+/* 
+* ==============================================
+* 7. Animations
+* ==============================================
+*/
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Table Styles */
+.tableSection {
+    margin-top: 2rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    padding-top: 2rem;
+}
+
+.tableContainer {
+    width: 100%;
+    overflow-x: auto;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.dataTable {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+.dataTable th,
+.dataTable td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.dataTable th {
+    background: #f8fafc;
+    font-weight: 600;
+    color: #2A1464;
+}
+
+.dataTable tr:hover {
+    background: #f8fafc;
+}
+
+.checkboxContainer {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.checkbox {
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: 4px;
+    border: 2px solid #4ECDC4;
+    cursor: pointer;
+}
+
+.checkboxLabel {
+    font-size: 1rem;
+    color: #2A1464;
+    cursor: pointer;
+}
+
+/* Table cell highlighting */
+.tableHighlight {
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    display: inline-block;
+    font-weight: 500;
+}
+
+/* Ownership highlights */
+.ownershipInHouse {
+    background-color: rgba(78, 205, 196, 0.1);
+    color: #4ECDC4;
+}
+
+.ownershipSubcontractor {
+    background-color: rgba(255, 159, 28, 0.1);
+    color: #FF9F1C;
+}
+
+/* Status highlights */
+.statusHighlightActive {
+    background-color: rgba(42, 183, 202, 0.1);
+    color: #2AB7CA;
+}
+
+.statusHighlightHold {
+    background-color: rgba(255, 217, 61, 0.1);
+    color: #FFD93D;
+}
+
+.statusHighlightNotStarted {
+    background-color: rgba(255, 107, 107, 0.1);
+    color: #FF6B6B;
+}
+
+/* Small mobile devices */
+
+/* 
+* ==============================================
+* 8. Responsive Design
+* ==============================================
+*/
+
+/* Large screens */
+@media (max-width: 1280px) {
+    .chartsGrid {
+        grid-template-columns: 1fr;
+    }
+    
+    .chartCard {
+        height: 300px;
+    }
+}
+
+/* Medium screens */
+@media (max-width: 1024px) {
+    .statsGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Small screens */
+@media (max-width: 640px) {
+    .container {
+        padding: 1rem;
+    }
+    
+    .content {
+        padding: 1rem;
+    }
+    
+    .title {
+        font-size: 1.5rem;
+    }
+    
+    .statsGrid {
+        grid-template-columns: 1fr;
+    }
+    
+    .chartCard {
+        height: 250px;
+    }
+}
+
+/* Mobile devices */
+@media screen and (max-width: 768px) {
+    .chartCard {
+        height: 350px;
+        padding: 1rem;
+    }
+
+    .chartContainer {
+        margin-bottom: 0.5rem;
+    }
+
+    .chartTitle {
+        font-size: 1.125rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .legendGrid, .statusGrid {
+        padding: 0.25rem 0;
+    }
+
+    :global(.recharts-pie) {
+        transform: scale(0.85);
+        transform-origin: center;
+    }
+
+    :global(.recharts-legend-wrapper) {
+        position: relative !important;
+        width: 100% !important;
+        height: auto !important;
+        bottom: 0 !important;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.25rem;
+        padding-top: 0.5rem !important;
+    }
+
+    .statValue {
+        font-size: 1.5rem;
+    }
+
+    .legendValue {
+        font-size: 1rem;
+    }
+}
+
+/* Small mobile devices */
+@media screen and (max-width: 480px) {
+    .chartCard {
+        padding: 1rem;
+        height: 300px;
+    }
+
+    .statCard {
+        padding: 1rem;
+        gap: 0.5rem;
+    }
+
+    .statHeader {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .statTitle {
+        font-size: 0.875rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .statValue {
+        font-size: 1.125rem;
+    }
+
+    .chartTitle {
+        font-size: 1.125rem;
+        margin-bottom: 1rem;
+    }
+
+    .legendLabel {
+        font-size: 0.75rem;
+    }
+
+    .legendValue, .statusActive, .statusHold, .statusNotStarted {
+        font-size: 1rem;
+    }
+}

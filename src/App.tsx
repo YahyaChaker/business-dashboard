@@ -6,6 +6,7 @@ import KpiFinanceDashboard from './components/KPIandBilling';
 import ManpowerAnalysis from './components/ManpowerAnalysis';
 import OpexOverview from './components/OPEXOverviewCard';
 import ExecutiveDashboard from './components/PPMandWOs';
+import SystemsOverview from './components/SystemsOverview';
 
 
 const App = () => {
@@ -19,6 +20,7 @@ const App = () => {
       <KpiFinanceDashboard />
       <ManpowerAnalysis />
       <ExecutiveDashboard />
+      <SystemsOverview/>
       
       {/* Main Content Section */}
       <main className="container mx-auto p-6">
