@@ -14,7 +14,12 @@
     "forceConsistentCasingInFileNames": true,
     "jsx": "react-jsx",
     "composite": true,
-    "declaration": true
+    "declaration": true,
+    "lib": [
+      "ES2020",
+      "DOM",
+      "DOM.Iterable"
+    ]
   },
   "references": [
     { "path": "./tsconfig.app.json" },
