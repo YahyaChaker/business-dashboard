@@ -1,6 +1,7 @@
 // src/App.tsx
 //import React from 'react';
 import CompactProjectHeader from './components/CompactProjectHeader';
+import ExcelCard from './components/DownloadUploadExcel';
 import FinancialOverview from './components/FinancialOverview';
 import KpiFinanceDashboard from './components/KPIandBilling';
 import ManpowerAnalysis from './components/ManpowerAnalysis';
@@ -15,6 +16,7 @@ const App = () => {
     {/*<div className="min-h-screen bg-gray-50">*/}
       {/* Header Section */}
       <CompactProjectHeader />
+      <ExcelCard  />
       <FinancialOverview />
       <OpexOverview />    
       <KpiFinanceDashboard />

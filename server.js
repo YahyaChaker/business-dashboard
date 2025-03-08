@@ -1,66 +1,75 @@
 import express from 'express';
-import formidable from 'formidable';
-import { fileURLToPath } from 'url';
-import { dirname, join } from 'path';
-import fs from 'fs';
 import cors from 'cors';
+import multer from 'multer';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import fs from 'fs';
 
 const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-const UPLOADS_DIR = join(__dirname, 'uploads');
-
-// Ensure uploads directory exists
-if (!fs.existsSync(UPLOADS_DIR)) {
-  fs.mkdirSync(UPLOADS_DIR, { recursive: true });
-}
+const __dirname = path.dirname(__filename);
 
 const app = express();
-const port = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3001;
 
-// Configure CORS
-app.use(cors({
-  origin: 'http://localhost:5173', // Vite's default port
-  methods: ['POST', 'GET', 'OPTIONS'],
-  allowedHeaders: ['Content-Type'],
-}));
+// Middleware
+app.use(cors());
+app.use(express.json());
 
-// Health check endpoint
-app.get('/api/health', (req, res) => {
-  res.json({ status: 'ok' });
-});
-
-app.post('/api/upload', async (req, res) => {
-  try {
-    const form = formidable({
-      uploadDir: UPLOADS_DIR,
-      keepExtensions: true,
-      maxFileSize: 10 * 1024 * 1024, // 10MB limit
-    });
-
-    form.parse(req, (err, fields, files) => {
-      if (err) {
-        console.error('Upload error:', err);
-        return res.status(500).json({ error: 'Error processing file upload' });
-      }
-
-      const file = files.file?.[0];
-      if (!file) {
-        return res.status(400).json({ error: 'No file uploaded' });
-      }
-
-      res.json({ 
-        message: 'File uploaded successfully',
-        filename: file.newFilename
-      });
-    });
-  } catch (error) {
-    console.error('Server error:', error);
-    res.status(500).json({ error: 'Internal server error' });
+// Set up storage for uploaded files
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    const uploadDir = path.join(__dirname, 'public');
+    
+    // Ensure directory exists
+    if (!fs.existsSync(uploadDir)) {
+      fs.mkdirSync(uploadDir, { recursive: true });
+    }
+    
+    cb(null, uploadDir);
+  },
+  filename: (req, file, cb) => {
+    // Use the original filename for the template file
+    cb(null, 'Project Performance Template.xlsx');
   }
 });
 
-app.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}`);
-}).on('error', (err) => {
-  console.error('Failed to start server:', err);
+// File filter
+const fileFilter = (req, file, cb) => {
+  const validExtensions = ['.xlsx', '.xls'];
+  const ext = path.extname(file.originalname).toLowerCase();
+  
+  if (validExtensions.includes(ext)) {
+    return cb(null, true);
+  }
+  
+  return cb(new Error('Only Excel files are allowed!'));
+};
+
+const upload = multer({ 
+  storage, 
+  fileFilter,
+  limits: { fileSize: 10 * 1024 * 1024 } // 10MB limit
+});
+
+// Upload endpoint
+app.post('/api/upload', upload.single('file'), (req, res) => {
+  if (!req.file) {
+    return res.status(400).json({ success: false, message: 'No file uploaded' });
+  }
+
+  console.log('File uploaded:', req.file.originalname, 'saved as:', req.file.filename);
+  
+  return res.status(200).json({ 
+    success: true, 
+    message: 'File uploaded successfully',
+    filename: req.file.filename
+  });
+});
+
+// Serve static files from the public directory
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Start server
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });

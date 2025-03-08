@@ -457,10 +457,12 @@ const ExecutiveDashboard: React.FC = () => {
                     <p className={styles.kpiLabel}>Backlog</p>
                     <AlertTriangle strokeWidth={1.5} className={styles.kpiIcon} />
                   </div>
-                  <p className={`${styles.kpiValue} ${styles.warning}`}>{currentMonthWO?.backlog}</p>
-                  <p className={styles.kpiContext}>
-                    {currentMonthWO && ((currentMonthWO.backlog / currentMonthWO.raised * 100).toFixed(1))}% of raised
-                  </p>
+                  <div className={styles.kpiValueContainer}>
+                    <p className={`${styles.kpiValue} ${styles.warning}`}>{currentMonthWO?.backlog}</p>
+                    <p className={styles.kpiContext}>
+                      {currentMonthWO && ((currentMonthWO.backlog / currentMonthWO.raised * 100).toFixed(1))}% of raised
+                    </p>
+                  </div>
                 </div>
               </>
             )}

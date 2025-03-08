@@ -1,0 +1,246 @@
+.container {
+    position: relative;
+    width: 100%;
+    max-width: 1440px;
+    padding: 1.5rem;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+}
+
+.card {
+    position: relative;
+    background: rgb(255, 255, 255);
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    overflow: hidden;
+    z-index: 1;
+    padding: 0.5rem 2rem 0.5rem 2rem; /* Added top padding */
+    animation: slideIn 0.5s ease-out;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* Changed from flex-start to center for vertical alignment */
+  margin-bottom: 0.5rem; /* Reduced bottom margin */
+  position: relative;
+  z-index: 1;
+  line-height: 1; /* Ensure consistent line height */
+}
+
+.titleSection {
+  flex: 1;
+  
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0; /* Remove margin to avoid spacing issues */
+  padding: 0;
+  display: inline-flex; /* Ensure it's inline with toggle */
+  align-items: center;
+}
+
+.subtitle {
+  font-size: 1rem; /* Updated to match OpexOverview subtitle size */
+  color: #6b7280;
+  font-weight: 500;
+  margin-bottom: 0.5rem; /* Add margin below subtitle */
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.actionItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.downloadButton, .uploadButton {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.5rem; /* Updated to match OpexOverview button padding */
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  font-size: 1rem; /* Updated to match OpexOverview button text size */
+}
+
+.downloadButton {
+  background-color: var(--summer-sky, #4ECDC4);
+  color: white;
+  border: none;
+}
+
+.downloadButton:hover {
+  background-color: var(--summer-sky-dark, #3DBDB5);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.downloadButton:active {
+  transform: translateY(0);
+}
+
+.uploadButton {
+  background-color: var(--summer-coral, #FF6B6B);
+  color: white;
+  border: none;
+  position: relative;
+}
+
+.uploadButton:hover {
+  background-color: var(--summer-coral-dark, #F05A5A);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.uploadButton:active {
+  transform: translateY(0);
+}
+
+.fileInput {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.uploadingMessage,
+.successMessage,
+.errorMessage {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem; /* Updated to match OpexOverview font size */
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.uploadingMessage {
+  color: #7b8b9a;
+  background-color: rgba(123, 139, 154, 0.08);
+}
+
+.successMessage {
+  color: var(--summer-leaf, #10b981);
+  background-color: rgba(16, 185, 129, 0.08);
+  font-weight: 500;
+}
+
+.errorMessage {
+  color: var(--summer-coral, #ef4444);
+  background-color: rgba(239, 68, 68, 0.08);
+  font-weight: 500;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.toggleContainer {
+  margin-left: 1rem;
+  display: inline-flex; /* Changed to inline-flex */
+  align-items: center;
+  padding: 0; /* Remove any padding */
+}
+
+.toggleLabel {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  height: 100%; /* Match height with title */
+}
+
+.toggleCheckbox {
+  margin-right: 0.5rem;
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+}
+
+.toggleText {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #6b7280;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+
+.toggleText:hover {
+  color: #4b5563;
+}
+
+.toggleIcon {
+  margin-right: 0.5rem;
+}
+
+/* Media Queries for Responsive Design */
+@media (min-width: 640px) {
+  .actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2rem; /* Updated to match OpexOverview gap spacing */
+  }
+  
+  .actionItem {
+    flex: 1;
+    min-width: 220px; /* Updated to match OpexOverview component size */
+  }
+}
+
+/* Optional animation for button hover states */
+.downloadButton svg,
+.uploadButton svg {
+  transition: transform 0.2s ease;
+}
+
+.downloadButton:hover svg,
+.uploadButton:hover svg {
+  transform: scale(1.2);
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .header {
+    flex-direction: row; /* Ensure elements stay in a row */
+    flex-wrap: wrap; /* Allow wrapping if needed */
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem; /* Add gap for better spacing when wrapped */
+  }
+  
+  .toggleContainer {
+    margin-left: 0;
+    margin-top: 0.75rem;
+    justify-content: flex-end;
+  }
+  
+  .title {
+    font-size: 1.25rem; /* Slightly smaller title on mobile */
+  }
+}

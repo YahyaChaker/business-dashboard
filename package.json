@@ -4,11 +4,13 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "server": "node server.js"
+    "server": "node server.js",
+    "start:server": "node server.js",
+    "dev": "concurrently \"npm run dev:vite\" \"npm run start:server\"",
+    "dev:vite": "vite"
   },
   "dependencies": {
     "@ant-design/icons": "^5.6.1",
@@ -22,6 +24,7 @@
     "express": "^4.21.2",
     "formidable": "^3.5.2",
     "lucide-react": "^0.475.0",
+    "multer": "^1.4.5-lts.1",
     "next": "^15.1.7",
     "react": "^18.3.1",
     "react-data-grid": "^7.0.0-beta.48",
@@ -34,11 +37,13 @@
     "@types/cors": "^2.8.17",
     "@types/express": "^5.0.0",
     "@types/formidable": "^3.4.5",
+    "@types/multer": "^1.4.12",
     "@types/node": "^22.13.4",
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
     "@types/recharts": "^1.8.29",
     "@vitejs/plugin-react": "^4.3.4",
+    "concurrently": "^8.2.2",
     "eslint": "^9.19.0",
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.18",
