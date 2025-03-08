@@ -1,0 +1,10 @@
+
+/* Extracted styles from ManpowerAnalysis component */
+.tableCell {
+  /* Add the styles that were previously inline at lines 335 and 355 */
+  /* Example (adjust according to the actual inline styles): */
+  textAlign: 'center';
+  padding: '8px';
+}
+
+/* Add other extracted styles as needed */

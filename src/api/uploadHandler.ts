@@ -44,7 +44,7 @@ router.post('/upload', upload.single('excelFile'), async (req: FileRequest, res:
     }
 
     // Read the uploaded Excel file
-    const workbook = XLSX.read(req.file.path, { type: 'file' });
+    const _workbook = XLSX.read(req.file.path, { type: 'file' });
     
     // Process the data here...
     

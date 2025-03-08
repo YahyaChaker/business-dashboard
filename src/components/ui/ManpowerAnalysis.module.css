@@ -421,6 +421,14 @@
     font-size: 0.875rem;
 }
 
+.staffingVarianceNegative {
+    color: var(--summer-coral);
+  }
+  
+  .staffingVariancePositive {
+    color: var(--summer-leaf);
+  }
+
 /* 
 * ==============================================
 * 6. Animations
