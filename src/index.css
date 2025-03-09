@@ -55,6 +55,38 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+/* Error boundary styles */
+.error-container {
+  padding: 20px;
+  color: red;
+  border: 1px solid #ffcccc;
+  border-radius: 4px;
+  background-color: #fff8f8;
+  margin: 20px;
+}
+
+.error-container h1 {
+  font-size: 24px;
+  margin-bottom: 16px;
+}
+
+.error-container details {
+  margin-top: 16px;
+}
+
+.error-container summary {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.error-container pre {
+  margin-top: 8px;
+  padding: 12px;
+  background-color: #f8f8f8;
+  border-radius: 4px;
+  overflow: auto;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
