@@ -1,8 +1,8 @@
 import express, { Request, Response } from 'express';
 import path from 'path';
 import multer from 'multer';
-// Remove unused fs import
-import * as XLSX from 'xlsx';
+import fs from 'fs'; // Add this import
+//import * as XLSX from 'xlsx';
 
 // Update the request type to include file property
 interface FileRequest extends Request {
@@ -43,13 +43,14 @@ router.post('/upload', upload.single('excelFile'), async (req: FileRequest, res:
       return;
     }
 
-    // Read the uploaded Excel file
-    const _workbook = XLSX.read(req.file.path, { type: 'file' });
-    
-    // Process the data here...
-    
+    // Move the uploaded file to the public folder with the correct name
+    const publicPath = path.join(__dirname, '../../public/Project Performance Template.xlsx');
+    fs.copyFileSync(req.file.path, publicPath); // Overwrite the file in public
+    // Optionally, delete the uploaded file from uploads
+    fs.unlinkSync(req.file.path);
+
     // Return success response
-    res.status(200).json({ message: 'File uploaded successfully', filename: req.file.filename });
+    res.status(200).json({ success: true, message: 'File uploaded and replaced successfully' });
   } catch (error) {
     console.error('Error processing file:', error);
     res.status(500).json({ error: 'Error processing file' });
